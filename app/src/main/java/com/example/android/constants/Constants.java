@@ -30,7 +30,7 @@ public final class Constants {
     public final static String POPULARITY_PARAM = "popularity.asc";
     public final static String TITLE_PARAM = "original_title.asc";
     public final static String API_KEY = "api_key";
-    public final static String API_KEY_VALUE = "2af6b9f1c17abb7c7a7cd868a0150ff3";
+    public final static String API_KEY_VALUE = "";
 
 
 
