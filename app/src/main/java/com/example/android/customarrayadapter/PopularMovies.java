@@ -116,7 +116,7 @@ public class PopularMovies implements Parcelable {
     }
 
     private boolean isNullData(Integer data){
-       return data == null? true : false;
+       return data == null;
     }
 
     public static final Creator<PopularMovies> CREATOR = new Creator<PopularMovies>() {

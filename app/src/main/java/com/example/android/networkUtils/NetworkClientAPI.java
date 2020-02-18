@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.example.android.constants.Constants;
+import com.example.android.popularmovies.BuildConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +22,8 @@ public final class NetworkClientAPI {
 
     private static final String TAG = NetworkClientAPI.class.getSimpleName();
 
-
+    private static final String consumerKey = BuildConfig.CONSUMER_KEY;
+    private static final String consumerSecret = BuildConfig.CONSUMER_SECRET;
     /**
      * Builds the URL used to talk to the weather server using a location. This location is based
      * on the query capabilities of the weather provider that we are using.
@@ -30,12 +32,14 @@ public final class NetworkClientAPI {
      * @return The URL to use to query the weather server.
      */
     public static URL buildUrl(String sortByQuery) {
-        Log.i(TAG, "buildUrl: ");
-        Uri builtUri = Uri.parse(Constants.MOVIEDB_BASE_URL).buildUpon()
-                .appendQueryParameter(Constants.API_KEY, Constants.API_KEY_VALUE)
-                .appendQueryParameter(Constants.SORT_BY, sortByQuery)
-                .build();
 
+        Uri builtUri = Uri.parse(Constants.MOVIEDB_BASE_URL + sortByQuery).buildUpon()
+                .appendQueryParameter(consumerKey, consumerSecret)
+                .build();
+//                .appendQueryParameter(Constants.SORT_BY, sortByQuery)
+//                .build();
+
+        Log.i(TAG, "NetworkClientAPI: buildUrl: " + builtUri);
         URL url = null;
         try {
             url = new URL(builtUri.toString());

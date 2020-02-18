@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements MyPopularMovieAda
         myRecyclerView.setAdapter(mPopularmoviesAdapter);
 
         //runData on backround thread fist to get default data
-        loadMovieData(Constants.TITLE_PARAM);
+        loadMovieData(Constants.POPULARITY_PARAM);
 
     }
 
